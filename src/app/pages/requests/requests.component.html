@@ -5,6 +5,11 @@
         <mat-card-subtitle>lista de pedidos confirmados</mat-card-subtitle>
       </mat-card-header>
 
+      <mat-form-field class="filtro">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+      </mat-form-field>
+
 <div class="example-container mat-elevation-z8">
 
     <table mat-table [dataSource]="dataSource">

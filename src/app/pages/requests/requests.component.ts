@@ -14,23 +14,11 @@ export class RequestsComponent implements OnInit {
       ['pedido', 'dia', 'hora', 'cliente', 'UF', 'email', 'telefone', 'frete','valorPagamento','localVenda', 'status'];
   formatedData: Object[] = [];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+
   constructor(private http: HttpClient,) { }
 
   ngOnInit() {
-  // ELEMENT_DATA.forEach(data => {
-  // this.formatedData.push({
-  // pedido: data.PEDIDO,
-  // dia: data.DATA_ENVIOS,
-  // hora: data.HORA,
-  // cliente: data.CLIENTE,
-  // UF: data.ESTADO,
-  // email: data.EMAIL,
-  // telefone: data.TELEFONE,
-  // frete: data.FRETE,
-  // valorPagamento: data.VALOR_PAGTO,
-  // localVenda: data.LOCAL_VENDA,
-  // status: data.STATUS,
-// });
+
 };
 
 applyFilter(event: Event) {
@@ -39,9 +27,6 @@ applyFilter(event: Event) {
 }
 
 }
-// const ELEMENT_DATA: RequestList[] = [];
-
-
 
 export interface fullList{
   PEDIDO: string;

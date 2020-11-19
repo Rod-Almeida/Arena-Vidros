@@ -20,6 +20,7 @@ mat-card{
     text-align: center;
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    max-width: 250px;
 }
 
   td.mat-column-star {
@@ -39,6 +40,10 @@ mat-card{
   
   .mat-table-sticky:last-child {
     border-left: 1px solid #e0e0e0;
+  }
+
+  .productName{
+      max-width: 250px;
   }
 
   img{
