@@ -16,13 +16,22 @@ mat-card{
     width: 800px;
   }
   
+  th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding: 10px;
+    text-align: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
   td.mat-column-star {
     width: 20px;
     padding-right: 8px;
+    align-items: center;
   }
   
   th.mat-column-position, td.mat-column-position {
     padding-left: 8px;
+    align-items: center;
   }
   
   .mat-table-sticky:first-child {
