@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { SelectionModel } from '@angular/cdk/collections'
 
 @Component({
   selector: 'app-products',
@@ -10,8 +11,9 @@ export class ProductsComponent implements OnInit {
 
   API_URL = "http://187.75.55.139:8081/api/TAB_PEDIDO?DATA1=01/09/2020"
   displayedColumns =
-      ['ID', 'Imagem', 'Produto', 'Categoria', 'Preço', 'Estoque', ];
-  formatedData: Object[] = [];
+      ['select', 'ID', 'Imagem', 'Produto', 'Categoria', 'Preço', 'Estoque', ];
+  
+  selection = new SelectionModel<fullList>(true, []);
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   constructor() { }
 
@@ -23,9 +25,29 @@ applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
   this.dataSource.filter = filterValue.trim().toLowerCase();
 }
-
+ /** Whether the number of selected elements matches the total number of rows. */
+ isAllSelected() {
+  const numSelected = this.selection.selected.length;
+  const numRows = this.dataSource.data.length;
+  return numSelected === numRows;
 }
-// const ELEMENT_DATA: RequestList[] = [];
+
+/** Selects all rows if they are not all selected; otherwise clear selection. */
+masterToggle() {
+  this.isAllSelected() ?
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
+}
+
+/** The label for the checkbox on the passed row */
+checkboxLabel(row?: fullList): string {
+  if (!row) {
+    return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+  }
+  return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+}
+}
+
 
 
 
