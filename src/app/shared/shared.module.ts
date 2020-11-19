@@ -15,7 +15,7 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule 
+    MatListModule,
   ],
   exports: [
     HeaderComponent,

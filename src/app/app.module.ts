@@ -6,16 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { ProductsModule } from './pages/products/products.module';
+import { RequestsModule } from './pages/requests/requests.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { ProductsComponent } from './pages/products/products.component';
-import { RequestsComponent } from './pages/requests/requests.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
-    RequestsComponent,
 
   ],
   imports: [
@@ -25,7 +24,10 @@ import { RequestsComponent } from './pages/requests/requests.component';
     SharedModule,
     DashboardModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    ProductsModule,
+    RequestsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
