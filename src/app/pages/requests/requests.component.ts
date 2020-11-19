@@ -15,7 +15,7 @@ export class RequestsComponent implements OnInit {
   formatedData: Object[] = [];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor(private http: HttpClient,) { }
+  constructor() { }
 
   ngOnInit() {
 

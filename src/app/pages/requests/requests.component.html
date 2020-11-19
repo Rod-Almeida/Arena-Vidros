@@ -1,34 +1,34 @@
 <mat-card>
 
-    <mat-card-header>
-        <mat-card-title>Pedidos</mat-card-title>
-        <mat-card-subtitle>lista de pedidos confirmados</mat-card-subtitle>
-      </mat-card-header>
+  <mat-card-header>
+    <mat-card-title>Pedidos</mat-card-title>
+    <mat-card-subtitle>lista de pedidos confirmados</mat-card-subtitle>
+  </mat-card-header>
 
-      <mat-form-field class="filtro">
-        <mat-label>Filtrar</mat-label>
-        <input matInput (keyup)="applyFilter($event)" #input>
-      </mat-form-field>
+  <mat-form-field class="filtro">
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
 
-<div class="example-container mat-elevation-z8">
+  <div class="example-container mat-elevation-z8">
 
     <table mat-table [dataSource]="dataSource">
-  
+
       <ng-container matColumnDef="pedido" sticky>
         <th mat-header-cell *matHeaderCellDef> No. Pedido </th>
         <td mat-cell *matCellDef="let element"> {{element.PEDIDO}} </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="dia">
         <th mat-header-cell *matHeaderCellDef> Dia </th>
         <td mat-cell *matCellDef="let element"> {{element.DATA_ENVIOS}} </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="hora">
         <th mat-header-cell *matHeaderCellDef> Hora </th>
         <td mat-cell *matCellDef="let element"> {{element.HORA}} </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="cliente">
         <th mat-header-cell *matHeaderCellDef> Cliente </th>
         <td mat-cell *matCellDef="let element"> {{element.CLIENTE}} </td>
@@ -63,15 +63,15 @@
         <th mat-header-cell *matHeaderCellDef> Local da Venda </th>
         <td mat-cell *matCellDef="let element"> {{element.LOCAL_VENDA}} </td>
       </ng-container>
-  
+
 
       <ng-container matColumnDef="status" stickyEnd>
         <th mat-header-cell *matHeaderCellDef> Status </th>
         <td mat-cell *matCellDef="let element">
-            {{element.STATUS}}
+          {{element.STATUS}}
         </td>
       </ng-container>
-  
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

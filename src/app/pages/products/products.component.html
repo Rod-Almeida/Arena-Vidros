@@ -3,66 +3,64 @@
     <mat-card-header>
         <mat-card-title>Produtos</mat-card-title>
         <mat-card-subtitle>Lista de produtos</mat-card-subtitle>
-      </mat-card-header>
-      <mat-form-field class="filtro">
+    </mat-card-header>
+    <mat-form-field class="filtro">
         <mat-label>Filtrar</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Digite No. do pedido, nome do produto, categoria do produto ou estoque" #input>
-      </mat-form-field>
-<div class="example-container mat-elevation-z8">
+        <input matInput (keyup)="applyFilter($event)"
+            placeholder="Digite No. do pedido, nome do produto, categoria do produto ou estoque" #input>
+    </mat-form-field>
+    <div class="example-container mat-elevation-z8">
 
-    <table mat-table [dataSource]="dataSource">
+        <table mat-table [dataSource]="dataSource">
 
-        <ng-container matColumnDef="select">
-            <th mat-header-cell *matHeaderCellDef>
-              <mat-checkbox (change)="$event ? masterToggle() : null"
-                            [checked]="selection.hasValue() && isAllSelected()"
-                            [indeterminate]="selection.hasValue() && !isAllSelected()"
-                            [aria-label]="checkboxLabel()">
-              </mat-checkbox>
-            </th>
-            <td mat-cell *matCellDef="let row">
-              <mat-checkbox (click)="$event.stopPropagation()"
-                            (change)="$event ? selection.toggle(row) : null"
-                            [checked]="selection.isSelected(row)"
-                            [aria-label]="checkboxLabel(row)">
-              </mat-checkbox>
-            </td>
-          </ng-container>
-  
-      <ng-container matColumnDef="ID" sticky>
-        <th mat-header-cell *matHeaderCellDef> Código do Produto </th>
-        <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="Imagem">
-        <th mat-header-cell *matHeaderCellDef> Imagem </th>
-        <td mat-cell *matCellDef="let element"> <img src="{{element.IMAGEM}}"></td>
-      </ng-container>
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
 
-      <ng-container matColumnDef="Produto" class="productName">
-        <th mat-header-cell *matHeaderCellDef> Nome do Produto </th>
-        <td mat-cell *matCellDef="let element"> {{element.PRODUTO}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="Categoria">
-        <th mat-header-cell *matHeaderCellDef> Categoria </th>
-        <td mat-cell *matCellDef="let element"> {{element.CATEGORIA}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="Preço">
-        <th mat-header-cell *matHeaderCellDef> Preço </th>
-        <td mat-cell *matCellDef="let element"> R$ {{element.PRECO}} </td>
-      </ng-container>
+            <ng-container matColumnDef="ID" sticky>
+                <th mat-header-cell *matHeaderCellDef> Código do Produto </th>
+                <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+            </ng-container>
 
-      <ng-container matColumnDef="Estoque">
-        <th mat-header-cell *matHeaderCellDef> Estoque </th>
-        <td mat-cell *matCellDef="let element"> {{element.ESTOQUE_ATUAL}} </td>
-      </ng-container>
+            <ng-container matColumnDef="Imagem">
+                <th mat-header-cell *matHeaderCellDef> Imagem </th>
+                <td mat-cell *matCellDef="let element"> <img src="{{element.IMAGEM}}"></td>
+            </ng-container>
 
-      
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
+            <ng-container matColumnDef="Produto" class="productName">
+                <th mat-header-cell *matHeaderCellDef> Nome do Produto </th>
+                <td mat-cell *matCellDef="let element"> {{element.PRODUTO}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Categoria">
+                <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                <td mat-cell *matCellDef="let element"> {{element.CATEGORIA}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Preço">
+                <th mat-header-cell *matHeaderCellDef> Preço </th>
+                <td mat-cell *matCellDef="let element"> R$ {{element.PRECO}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Estoque">
+                <th mat-header-cell *matHeaderCellDef> Estoque </th>
+                <td mat-cell *matCellDef="let element"> {{element.ESTOQUE_ATUAL}} </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </mat-card>
